@@ -22,15 +22,20 @@ catwoman = Role(character="Catwoman")
 burry = Role(character="Dr. Michael Burry")
 american_psycho = Role(character="Patrick Bateman")
 
-batman.actors.append(bale)
-batman.actors.append(keaton)
-batman.actors.append(arnett)
-catwoman.actors.append(pfeiffer)
-catwoman.actors.append(hathaway)
-
 bale.roles.append(burry)
 bale.roles.append(american_psycho)
 
-session.add_all([bale, hathaway, pfeiffer, keaton, arnett])
+batman.actors.append(bale)
+batman.actors.append(keaton)
+batman.actors.append(arnett)
+catwoman.actors.append(hathaway)
+catwoman.actors.append(pfeiffer)
+
+
+
+
+
+
+session.add_all([bale, pfeiffer, hathaway, keaton, arnett])
 session.add_all([batman, catwoman])
 session.commit()

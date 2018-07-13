@@ -41,7 +41,7 @@ class TestBasicHasManyThrough(unittest.TestCase):
         names = []
         for actor in actors:
             names.append(actor.name)
-        self.assertEqual(names, ['Michelle Pfeiffer', 'Anne Hathaway'])
+        self.assertEqual(names, ['Anne Hathaway', 'Michelle Pfeiffer'])
 
     def test_return_number_of_batman_actors(self):
         result = return_number_of_batman_actors(session)

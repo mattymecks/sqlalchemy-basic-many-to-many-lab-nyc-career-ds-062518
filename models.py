@@ -4,7 +4,23 @@ from sqlalchemy.orm import sessionmaker, relationship
 
 Base = declarative_base()
 
-# Write your classes below
+class Actor(Base):
+    __tablename__ = "actors"
+    id = Column(INTEGER, primary_key=True)
+    name = Column(TEXT)
+    roles = relationship ('Role', secondary = 'actor_roles', back_populates = "actors")
+
+class Role(Base):
+    __tablename__ = "roles"
+    id = Column(INTEGER, primary_key=True)
+    character = Column(TEXT)
+    actors = relationship ('Actor', secondary = 'actor_roles', back_populates = "roles")
+
+class ActorRole(Base):
+    __tablename__ = "actor_roles"
+    actor_id = Column(INTEGER, ForeignKey('actors.id'), primary_key=True)
+    role_id = Column(INTEGER, ForeignKey('roles.id'), primary_key=True)
+
 
 
 
